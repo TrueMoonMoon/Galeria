@@ -1,0 +1,158 @@
+<html>
+	<head>
+        <meta charset=utf-8>
+		<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".galeria a").click(function(){ //maksymalizowanie obrazu
+					check = 1;
+					var do_zdj = $(this).attr("href");
+					var do_tyt = $(this).attr("title");
+						$(".cover").animate({
+						opacity: "0.1",
+						}, 400);
+						$("#bigpicbg").animate({
+						opacity: "1",
+						}, 200);
+						$("#bigpic").animate({
+						opacity: "1", 
+						}, 200);
+						$("#bigpicbg").animate({
+						height: "510px", top: "20%",
+						}, 1000);
+						$("#bigpicbg").animate({
+						width: "510px", left: "30%",
+						}, 1000);
+						$("#bigpic").animate({
+						height: "500px", top: "20%",
+						}, 1000);
+						$("#bigpic").animate({
+						width: "500px", left: "30%",
+						}, 1000);
+						$("#zamykajka").delay(2000).animate({
+						opacity: "1",
+						}, 1);
+					$("#bigpic").attr({src: do_zdj, alt: do_tyt});
+					return false;
+				});
+				$("#zamykajka").click(function(){	//minimalizowanie przyciskiem
+					var do_zdj = $(this).attr("href");
+					var do_tyt = $(this).attr("title");
+						$("#zamykajka").animate({
+						opacity: "0",
+						}, 1);
+						$("#bigpic").animate({
+						width: "0px", left: "50%",
+						}, 1000);
+						$("#bigpic").animate({
+						height: "0px", top: "20%",
+						}, 1000);
+						$("#bigpicbg").animate({
+						width: "0px", left: "50%",
+						}, 1000);
+						$("#bigpicbg").animate({
+						height: "0px", top: "50%",
+						}, 1000);
+						$("#bigpic").animate({
+						opacity: "0",
+						}, 200);
+						$("#bigpicbg").animate({
+						opacity: "0",
+						}, 200);
+						$(".cover").delay(2000).animate({
+						opacity: "1",
+						}, 200);
+						
+					$("#bigpic").attr({src: do_zdj, alt: do_tyt});
+					return false;
+				});
+				$(".cover").click(function(){	//minimalizowanie tłem
+					var do_zdj = $(this).attr("href");
+					var do_tyt = $(this).attr("title");
+						$("#zamykajka").animate({
+						opacity: "0",
+						}, 1);
+						$("#bigpic").animate({
+						width: "0px", left: "50%",
+						}, 1000);
+						$("#bigpic").animate({
+						height: "0px", top: "20%",
+						}, 1000);
+						$("#bigpicbg").animate({
+						width: "0px", left: "50%",
+						}, 1000);
+						$("#bigpicbg").animate({
+						height: "0px", top: "50%",
+						}, 1000);
+						$("#bigpic").animate({
+						opacity: "0",
+						}, 200);
+						$("#bigpicbg").animate({
+						opacity: "0",
+						}, 200);
+						$(".cover").delay(2000).animate({
+						opacity: "1",
+						}, 200);
+						
+					$("#bigpic").attr({src: do_zdj, alt: do_tyt});
+					return false;
+				});
+			});
+		</script>
+		<style>
+			body{
+				background-color: black;
+			}
+			.cover{
+				background-color: white;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                position:fixed;
+                top:0;
+                left:0;
+			}
+			h2{
+				margin: 0 0 .2em;
+			}
+			h2 em{
+				color: #999999;
+			}
+			#bigpicbg{
+				border: solid 1px #ccc;
+				width: 0px;
+				height: 0px;
+				padding: 5px;
+				opacity: 0px;
+				opacity:0;
+				position: fixed;
+				top: 50%;
+				left:50%;
+				background:black;
+			}
+			galeria img{
+				border: solid 1px #ccc;
+				width: 100px;
+				height: 100px;
+				padding: 0px;
+			}
+			galeria img:hover{
+				border-color: #FF9900;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="cover">
+			<center>
+				<p class="galeria">
+					<a href="pht1.jpg" title="Zdjęcie 1"><img src="pht1s.jpg"></a>
+					<a href="pht2.jpg" title="Zdjęcie 2"><img src="pht2s.jpg"></a>
+					<a href="pht3.jpg" title="Zdjęcie 3"><img src="pht3s.jpg"></a>
+				</p>
+			</center>
+		</div>
+			<div id="bigpicbg"><img id="bigpic" src="pht1.jpg" alt="Duże zdjęcie" style="opacity:0; width:0px; padding:10px; height:0px; position:fixed; top:50%; left:50%; "></div>
+			<img id="zamykajka" src="x.jpg" alt="x" style="opacity:0; width:50px; height:50px; position:fixed; top:20%; left:95%;" 
+	</body>
+</html>
